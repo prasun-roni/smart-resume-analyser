@@ -79,7 +79,6 @@ def course_recommender(course_list):
 
 
 connection = pymysql.connect(host='sql12.freemysqlhosting.net',user='sql12620481',password='MDdCHuAush',db='sql12620481')
-
 cursor = connection.cursor()
 
 
@@ -103,7 +102,7 @@ st.set_page_config(
 
 def run():
     st.title("Smart Resume Analyser")
-    st.sidebar.markdown("# Choose User")
+    st.sidebar.markdown("Choose User")
     activities = ["Normal User", "Admin"]
     choice = st.sidebar.selectbox("Choose among the given options:", activities)
     img = Image.open('./Logo/SRA_Logo.jpg')
