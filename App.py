@@ -155,6 +155,7 @@ def run():
                 st.header("**Resume Analysis**")
                 st.success("Hello " + resume_data['name'])
                 st.subheader("**Your Basic info**")
+                
                 try:
                     st.text('Name: ' + resume_data['name'])
                     st.text('Email: ' + resume_data['email'])
@@ -162,15 +163,18 @@ def run():
                     st.text('Resume pages: ' + str(resume_data['no_of_pages']))
                 except:
                     pass
+                
                 cand_level = ''
                 if resume_data['no_of_pages'] == 1:
                     cand_level = "Fresher"
                     st.markdown('''<h4 style='text-align: left; color: #d73b5c;'>You are looking Fresher.</h4>''',
                                 unsafe_allow_html=True)
+                    
                 elif resume_data['no_of_pages'] == 2:
                     cand_level = "Intermediate"
                     st.markdown('''<h4 style='text-align: left; color: #1ed760;'>You are at intermediate level!</h4>''',
                                 unsafe_allow_html=True)
+                    
                 elif resume_data['no_of_pages'] >= 3:
                     cand_level = "Experienced"
                     st.markdown('''<h4 style='text-align: left; color: #fba171;'>You are at experience level!''',
@@ -198,8 +202,10 @@ def run():
                 recommended_skills = []
                 reco_field = ''
                 rec_course = ''
+                
                 ## Courses recommendation
                 for i in resume_data['skills']:
+                    
                     ## Data science recommendation
                     if i.lower() in ds_keyword:
                         print(i.lower())
@@ -281,7 +287,7 @@ def run():
                                                        text='Recommended skills generated from System',
                                                        value=recommended_skills, key='6')
                         st.markdown(
-                            '''<h4 style='text-align: left; color: #1ed760;'>Adding this skills to resume will boost🚀 the chances of getting a Job💼</h4>''',
+                            '''<h4 style='text-align: left; color: #1ed760;'>Adding this skills to resume will boost 🚀 the chances of getting a Job 💼.</h4>''',
                             unsafe_allow_html=True)
                         rec_course = course_recommender(uiux_course)
                         break
@@ -293,7 +299,7 @@ def run():
                 timestamp = str(cur_date + '_' + cur_time)
 
                 ### Resume writing recommendation
-                st.subheader("**Resume Tips & Ideas💡**")
+                st.subheader("**Resume Tips & Ideas 💡**")
                 resume_score = 0
                 if 'Objective' in resume_text:
                     resume_score = resume_score + 20
@@ -312,40 +318,40 @@ def run():
                         unsafe_allow_html=True)
                 else:
                     st.markdown(
-                        '''<h4 style='text-align: left; color: #fabc10;'>[-] According to our recommendation please add Declaration✍. It will give the assurance that everything written on your resume is true and fully acknowledged by you</h4>''',
+                        '''<h4 style='text-align: left; color: #fabc10;'>[-] According to our recommendation please add Declaration ✍. It will give the assurance that everything written on your resume is true and fully acknowledged by you</h4>''',
                         unsafe_allow_html=True)
 
                 if 'Hobbies' or 'Interests' in resume_text:
                     resume_score = resume_score + 20
                     st.markdown(
-                        '''<h4 style='text-align: left; color: #1ed760;'>[+] Awesome! You have added your Hobbies⚽</h4>''',
+                        '''<h4 style='text-align: left; color: #1ed760;'>[+] Awesome! You have added your Hobbies ⚽</h4>''',
                         unsafe_allow_html=True)
                 else:
                     st.markdown(
-                        '''<h4 style='text-align: left; color: #fabc10;'>[-] According to our recommendation please add Hobbies⚽. It will show your persnality to the Recruiters and give the assurance that you are fit for this role or not.</h4>''',
+                        '''<h4 style='text-align: left; color: #fabc10;'>[-] According to our recommendation please add Hobbies ⚽. It will show your persnality to the Recruiters and give the assurance that you are fit for this role or not.</h4>''',
                         unsafe_allow_html=True)
 
                 if 'Achievements' in resume_text:
                     resume_score = resume_score + 20
                     st.markdown(
-                        '''<h4 style='text-align: left; color: #1ed760;'>[+] Awesome! You have added your Achievements🏅 </h4>''',
+                        '''<h4 style='text-align: left; color: #1ed760;'>[+] Awesome! You have added your Achievements 🏅 </h4>''',
                         unsafe_allow_html=True)
                 else:
                     st.markdown(
-                        '''<h4 style='text-align: left; color: #fabc10;'>[-] According to our recommendation please add Achievements🏅. It will show that you are capable for the required position.</h4>''',
+                        '''<h4 style='text-align: left; color: #fabc10;'>[-] According to our recommendation please add Achievements 🏅. It will show that you are capable for the required position.</h4>''',
                         unsafe_allow_html=True)
 
                 if 'Projects' in resume_text:
                     resume_score = resume_score + 20
                     st.markdown(
-                        '''<h4 style='text-align: left; color: #1ed760;'>[+] Awesome! You have added your Projects👨‍💻 </h4>''',
+                        '''<h4 style='text-align: left; color: #1ed760;'>[+] Awesome! You have added your Projects 👨‍💻 </h4>''',
                         unsafe_allow_html=True)
                 else:
                     st.markdown(
-                        '''<h4 style='text-align: left; color: #fabc10;'>[-] According to our recommendation please add Projects👨‍💻. It will show that you have done work related the required position or not.</h4>''',
+                        '''<h4 style='text-align: left; color: #fabc10;'>[-] According to our recommendation please add Projects 👨‍💻. It will show that you have done work related the required position or not.</h4>''',
                         unsafe_allow_html=True)
 
-                st.subheader("**Resume Score📝**")
+                st.subheader("**Resume Score 📝**")
                 st.markdown(
                     """
                     <style>
@@ -371,14 +377,14 @@ def run():
                             str(recommended_skills), str(rec_course))
 
                 ## Resume writing video
-                st.header("**Bonus Video for Resume Writing Tips💡**")
+                st.header("**Bonus Video for Resume Writing Tips 💡**")
                 resume_vid = random.choice(resume_videos)
                 res_vid_title = fetch_yt_video(resume_vid)
                 st.subheader("✅ **" + res_vid_title + "**")
                 st.video(resume_vid)
 
                 ## Interview Preparation Video
-                st.header("**Bonus Video for Interview👨‍💼 Tips💡**")
+                st.header("**Bonus Video for Interview 👨‍💼 Tips 💡**")
                 interview_vid = random.choice(interview_videos)
                 int_vid_title = fetch_yt_video(interview_vid)
                 st.subheader("✅ **" + int_vid_title + "**")
