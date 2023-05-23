@@ -175,7 +175,7 @@ def run():
                     st.markdown('''<h4 style='text-align: left; color: #fba171;'>You are at experience level!''',
                                 unsafe_allow_html=True)
 
-                st.subheader("**Skills Recommendation💡**")
+                st.subheader("**Skills Recommendation 💡**")
                 ## Skill shows
                 keywords = st_tags(label='### Skills that you have',
                                    text='See our skills recommendation',
@@ -215,7 +215,7 @@ def run():
                                                        text='Recommended skills generated from System',
                                                        value=recommended_skills, key='2')
                         st.markdown(
-                            '''<h4 style='text-align: left; color: #1ed760;'>Adding this skills to resume will boost🚀 the chances of getting a Job💼</h4>''',
+                            '''<h4 style='text-align: left; color: #1ed760;'>Adding this skills to resume will boost 🚀 the chances of getting a Job 💼</h4>''',
                             unsafe_allow_html=True)
                         rec_course = course_recommender(ds_course)
                         break
@@ -231,7 +231,7 @@ def run():
                                                        text='Recommended skills generated from System',
                                                        value=recommended_skills, key='3')
                         st.markdown(
-                            '''<h4 style='text-align: left; color: #1ed760;'>Adding this skills to resume will boost🚀 the chances of getting a Job💼</h4>''',
+                            '''<h4 style='text-align: left; color: #1ed760;'>Adding this skills to resume will boost 🚀 the chances of getting a Job 💼</h4>''',
                             unsafe_allow_html=True)
                         rec_course = course_recommender(web_course)
                         break
@@ -247,7 +247,7 @@ def run():
                                                        text='Recommended skills generated from System',
                                                        value=recommended_skills, key='4')
                         st.markdown(
-                            '''<h4 style='text-align: left; color: #1ed760;'>Adding this skills to resume will boost🚀 the chances of getting a Job💼</h4>''',
+                            '''<h4 style='text-align: left; color: #1ed760;'>Adding this skills to resume will boost 🚀 the chances of getting a Job 💼</h4>''',
                             unsafe_allow_html=True)
                         rec_course = course_recommender(android_course)
                         break
@@ -264,7 +264,7 @@ def run():
                                                        text='Recommended skills generated from System',
                                                        value=recommended_skills, key='5')
                         st.markdown(
-                            '''<h4 style='text-align: left; color: #1ed760;'>Adding this skills to resume will boost🚀 the chances of getting a Job💼</h4>''',
+                            '''<h4 style='text-align: left; color: #1ed760;'>Adding this skills to resume will boost 🚀 the chances of getting a Job 💼</h4>''',
                             unsafe_allow_html=True)
                         rec_course = course_recommender(ios_course)
                         break
