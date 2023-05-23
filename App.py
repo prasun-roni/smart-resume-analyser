@@ -14,20 +14,14 @@ from pdfminer3.pdfpage import PDFPage
 from pdfminer3.pdfinterp import PDFResourceManager
 from pdfminer3.pdfinterp import PDFPageInterpreter
 from pdfminer3.converter import TextConverter
+from pytube import YouTube
 import io, random
 from streamlit_tags import st_tags
 from PIL import Image
 import pymysql
 from Courses import ds_course, web_course, android_course, ios_course, uiux_course, resume_videos, interview_videos
-# import pafy
 import plotly.express as px
 import youtube_dl
-
-from pytube import YouTube
-
-# def fetch_yt_video(link):
-#     video = pafy.new(link)
-#     return video.title
 
 def fetch_yt_video(link):
     video = YouTube(link)
@@ -368,7 +362,7 @@ def run():
                     score += 1
                     time.sleep(0.1)
                     my_bar.progress(percent_complete + 1)
-                st.success('** Your Resume Writing Score: ' + str(score) + '**')
+                st.success('Hurray ! Your Resume Writing Score: ' + str(score))
                 st.warning(
                     "** Note: This score is calculated based on the content that you have added in your Resume. **")
                 st.balloons()
