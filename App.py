@@ -21,6 +21,7 @@ import pymysql
 from Courses import ds_course, web_course, android_course, ios_course, uiux_course, resume_videos, interview_videos
 import plotly.express as px
 import youtube_dl
+import datetime
 
 def fetch_yt_video(link):
     video = YouTube(link)
@@ -288,10 +289,13 @@ def run():
                         break
 
                 ## Insert into table
-                ts = time.time()
-                cur_date = datetime.datetime.fromtimestamp(ts).strftime('%Y-%m-%d')
-                cur_time = datetime.datetime.fromtimestamp(ts).strftime('%H:%M:%S')
-                timestamp = str(cur_date + '_' + cur_time)
+#                 ts = time.time()
+#                 cur_date = datetime.datetime.fromtimestamp(ts).strftime('%Y-%m-%d')
+#                 cur_time = datetime.datetime.fromtimestamp(ts).strftime('%H:%M:%S')
+#                 timestamp = str(cur_date + '_' + cur_time)
+                
+                current_datetime = datetime.datetime.now()
+                timestamp = current_datetime.strftime('%Y-%m-%d_%H:%M:%S')
 
                 ### Resume writing recommendation
                 st.subheader("**Resume Tips & Ideas 💡**")
