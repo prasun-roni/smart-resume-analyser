@@ -78,7 +78,7 @@ def course_recommender(course_list):
     return rec_course
 
 
-connection = pymysql.connect(host='sql12.freemysqlhosting.net',user='sql12620481',password='MDdCHuAush',db='sql12620481')
+connection = pymysql.connect(host='sql12.freemysqlhosting.net',user='sql12620509',password='nFKDsjGPpD',db='sql12620509')
 cursor = connection.cursor()
 
 
@@ -106,9 +106,9 @@ def run():
     choice = st.sidebar.selectbox("Choose among the given options:", activities)
 
     # Create the DB
-    db_sql = """CREATE DATABASE IF NOT EXISTS sql12620481;"""
+    db_sql = """CREATE DATABASE IF NOT EXISTS sql12620509;"""
     cursor.execute(db_sql)
-    connection.select_db("sql12620481")
+    connection.select_db("sql12620509")
 
     # Create table
     DB_table_name = 'user_data'
