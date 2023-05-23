@@ -96,18 +96,18 @@ def insert_data(name, email, res_score, timestamp, no_of_pages, reco_field, cand
 
 st.set_page_config(
     page_title="Smart Resume Analyzer",
-    page_icon='./Logo/SRA_Logo.ico',
+#     page_icon='./Logo/SRA_Logo.ico',
 )
 
 
 def run():
     st.title("Smart Resume Analyser")
-    st.sidebar.markdown("Choose User")
+    st.sidebar.markdown("# Choose User")
     activities = ["Normal User", "Admin"]
     choice = st.sidebar.selectbox("Choose among the given options:", activities)
-    img = Image.open('./Logo/SRA_Logo.jpg')
-    img = img.resize((250, 250))
-    st.image(img)
+#     img = Image.open('./Logo/SRA_Logo.jpg')
+#     img = img.resize((250, 250))
+#     st.image(img)
 
     # Create the DB
     db_sql = """CREATE DATABASE IF NOT EXISTS sql12620481;"""
@@ -131,15 +131,24 @@ def run():
                      PRIMARY KEY (ID));
                     """
     cursor.execute(table_sql)
+    
     if choice == 'Normal User':
-        pdf_file = st.file_uploader("Choose your Resume", type=["pdf"])
+        
+        pdf_file = st.file_uploader("Upload your Resume", type=["pdf"])
+        
         if pdf_file is not None:
+            
             save_image_path = './Uploaded_Resumes/' + pdf_file.name
+            
             with open(save_image_path, "wb") as f:
                 f.write(pdf_file.getbuffer())
+                
             show_pdf(save_image_path)
+            
             resume_data = ResumeParser(save_image_path).get_extracted_data()
+            
             if resume_data:
+                
                 ## Get the whole resume data
                 resume_text = pdf_reader(save_image_path)
 
