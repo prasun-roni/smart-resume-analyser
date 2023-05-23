@@ -204,7 +204,7 @@ def run():
                     if i.lower() in ds_keyword:
                         print(i.lower())
                         reco_field = 'Data Science'
-                        st.success("** Our analysis says you are looking for Data Science Jobs.**")
+                        st.success("Okay ! So you are looking for Data Science Jobs. Great !")
                         recommended_skills = ['Data Visualization', 'Predictive Analysis', 'Statistical Modeling',
                                               'Data Mining', 'Clustering & Classification', 'Data Analytics',
                                               'Quantitative Analysis', 'Web Scraping', 'ML Algorithms', 'Keras',
@@ -223,7 +223,7 @@ def run():
                     elif i.lower() in web_keyword:
                         print(i.lower())
                         reco_field = 'Web Development'
-                        st.success("** Our analysis says you are looking for Web Development Jobs **")
+                        st.success("Okay ! So you are looking for Web Development Jobs. Awesome !")
                         recommended_skills = ['React', 'Django', 'Node JS', 'React JS', 'php', 'laravel', 'Magento',
                                               'wordpress', 'Javascript', 'Angular JS', 'c#', 'Flask', 'SDK']
                         recommended_keywords = st_tags(label='### Recommended skills for you.',
@@ -239,7 +239,7 @@ def run():
                     elif i.lower() in android_keyword:
                         print(i.lower())
                         reco_field = 'Android Development'
-                        st.success("** Our analysis says you are looking for Android App Development Jobs **")
+                        st.success("Okay ! So you are looking for Android App Development Jobs. That's nice.")
                         recommended_skills = ['Android', 'Android development', 'Flutter', 'Kotlin', 'XML', 'Java',
                                               'Kivy', 'GIT', 'SDK', 'SQLite']
                         recommended_keywords = st_tags(label='### Recommended skills for you.',
@@ -255,7 +255,7 @@ def run():
                     elif i.lower() in ios_keyword:
                         print(i.lower())
                         reco_field = 'IOS Development'
-                        st.success("** Our analysis says you are looking for IOS App Development Jobs **")
+                        st.success("Okay ! So you are looking for IOS App Development Jobs. Good !")
                         recommended_skills = ['IOS', 'IOS Development', 'Swift', 'Cocoa', 'Cocoa Touch', 'Xcode',
                                               'Objective-C', 'SQLite', 'Plist', 'StoreKit', "UI-Kit", 'AV Foundation',
                                               'Auto-Layout']
@@ -272,7 +272,7 @@ def run():
                     elif i.lower() in uiux_keyword:
                         print(i.lower())
                         reco_field = 'UI-UX Development'
-                        st.success("** Our analysis says you are looking for UI-UX Development Jobs **")
+                        st.success("Okay ! So you are looking for UI-UX Development Jobs. Wow !")
                         recommended_skills = ['UI', 'User Experience', 'Adobe XD', 'Figma', 'Zeplin', 'Balsamiq',
                                               'Prototyping', 'Wireframes', 'Storyframes', 'Adobe Photoshop', 'Editing',
                                               'Illustrator', 'After Effects', 'Premier Pro', 'Indesign', 'Wireframe',
@@ -364,7 +364,7 @@ def run():
                     my_bar.progress(percent_complete + 1)
                 st.success('Hurray ! Your Resume Writing Score: ' + str(score))
                 st.warning(
-                    "** Note: This score is calculated based on the content that you have added in your Resume. **")
+                    "Please Note: This score is calculated based on the content that you have added in your Resume.")
                 st.balloons()
 
                 insert_data(resume_data['name'], resume_data['email'], str(resume_score), timestamp,
