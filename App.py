@@ -32,8 +32,7 @@ def get_table_download_link(df, filename, text):
     out: href string
     """
     csv = df.to_csv(index=False)
-    b64 = base64.b64encode(csv.encode()).decode()  # some strings <-> bytes conversions necessary here
-    # href = f'<a href="data:file/csv;base64,{b64}">Download Report</a>'
+    b64 = base64.b64encode(csv.encode()).decode()
     href = f'<a href="data:file/csv;base64,{b64}" download="{filename}">{text}</a>'
     return href
 
@@ -96,7 +95,6 @@ def insert_data(name, email, res_score, timestamp, no_of_pages, reco_field, cand
 
 st.set_page_config(
     page_title="Smart Resume Analyzer",
-#     page_icon='./Logo/SRA_Logo.ico',
 )
 
 
@@ -105,9 +103,6 @@ def run():
     st.sidebar.markdown("# Choose User")
     activities = ["Normal User", "Admin"]
     choice = st.sidebar.selectbox("Choose among the given options:", activities)
-#     img = Image.open('./Logo/SRA_Logo.jpg')
-#     img = img.resize((250, 250))
-#     st.image(img)
 
     # Create the DB
     db_sql = """CREATE DATABASE IF NOT EXISTS sql12620481;"""
@@ -401,7 +396,7 @@ def run():
         ad_password = st.text_input("Password", type='password')
         if st.button('Login'):
             if ad_user == 'admin' and ad_password == 'admin':
-                st.success("Welcome Kushal")
+                st.success("Welcome Admin")
                 # Display Data
                 cursor.execute('''SELECT*FROM user_data''')
                 data = cursor.fetchall()
@@ -421,14 +416,14 @@ def run():
                 values = plot_data['Predicted_Field'].value_counts().values
                 print(values)
                 st.subheader("📈 **Pie-Chart for Predicted Field Recommendations**")
-                fig = px.pie(plot_data, values=values, names=labels, title='Predicted Field according to the Skills')
+                fig = px.pie(plot_data, values=values, names=labels, title='Overall predicted fields of all Users 👨‍')
                 st.plotly_chart(fig)
 
                 ### Pie chart for User's👨‍💻 Experienced Level
                 labels = plot_data['User_level'].unique()
                 values = plot_data['User_level'].value_counts().values
-                st.subheader("📈 ** Pie-Chart for User's👨‍💻 Experienced Level**")
-                fig = px.pie(plot_data, values=values, names=labels, title="Pie-Chart📈 for User's👨‍💻 Experienced Level")
+                st.subheader("📈 **Pie-Chart for User's 👨‍💻 Experienced Level**")
+                fig = px.pie(plot_data, values=values, names=labels, title="Overall experience level of all Users 👨‍💻")
                 st.plotly_chart(fig)
 
 
