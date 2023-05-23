@@ -4,7 +4,6 @@ import spacy
 nltk.download('stopwords')
 spacy.load('en_core_web_sm')
 import en_core_web_sm
-
 import pandas as pd
 import base64, random
 import time, datetime
@@ -61,7 +60,6 @@ def pdf_reader(file):
 def show_pdf(file_path):
     with open(file_path, "rb") as f:
         base64_pdf = base64.b64encode(f.read()).decode('utf-8')
-#     pdf_display = f'<embed src="data:application/pdf;base64,{base64_pdf}" width="700" height="1000" type="application/pdf">'
     pdf_display = f'<iframe src="data:application/pdf;base64,{base64_pdf}" width="700" height="1000" type="application/pdf"></iframe>'
     st.markdown(pdf_display, unsafe_allow_html=True)
 
@@ -108,8 +106,6 @@ def run():
     st.sidebar.markdown("# Choose User")
     activities = ["Normal User", "Admin"]
     choice = st.sidebar.selectbox("Choose among the given options:", activities)
-    # link = '[©Developed by Spidy20](http://github.com/spidy20)'
-    # st.sidebar.markdown(link, unsafe_allow_html=True)
     img = Image.open('./Logo/SRA_Logo.jpg')
     img = img.resize((250, 250))
     st.image(img)
@@ -137,12 +133,8 @@ def run():
                     """
     cursor.execute(table_sql)
     if choice == 'Normal User':
-        # st.markdown('''<h4 style='text-align: left; color: #d73b5c;'>* Upload your resume, and get smart recommendation based on it."</h4>''',
-        #             unsafe_allow_html=True)
         pdf_file = st.file_uploader("Choose your Resume", type=["pdf"])
         if pdf_file is not None:
-            # with st.spinner('Uploading your Resume....'):
-            #     time.sleep(4)
             save_image_path = './Uploaded_Resumes/' + pdf_file.name
             with open(save_image_path, "wb") as f:
                 f.write(pdf_file.getbuffer())
@@ -286,7 +278,6 @@ def run():
                         rec_course = course_recommender(uiux_course)
                         break
 
-                #
                 ## Insert into table
                 ts = time.time()
                 cur_date = datetime.datetime.fromtimestamp(ts).strftime('%Y-%m-%d')
@@ -362,7 +353,7 @@ def run():
                     score += 1
                     time.sleep(0.1)
                     my_bar.progress(percent_complete + 1)
-                st.success('Hurray ! Your Resume Writing Score: ' + str(score))
+                st.success('Hurray ! Your Resume Writing Score is: ' + str(score))
                 st.warning(
                     "Please Note: This score is calculated based on the content that you have added in your Resume.")
                 st.balloons()
@@ -391,7 +382,6 @@ def run():
     else:
         ## Admin Side
         st.success('Welcome to Admin Side')
-        # st.sidebar.subheader('**ID / Password Required!**')
 
         ad_user = st.text_input("Username")
         ad_password = st.text_input("Password", type='password')
@@ -412,24 +402,18 @@ def run():
                 plot_data = pd.read_sql(query, connection)
 
                 ## Pie chart for predicted field recommendations
-#                 labels = plot_data.Predicted_Field.unique()
                 labels = plot_data['Predicted_Field'].unique()
                 print(labels)
-#                 values = plot_data.Predicted_Field.value_counts()
                 values = plot_data['Predicted_Field'].value_counts().values
                 print(values)
                 st.subheader("📈 **Pie-Chart for Predicted Field Recommendations**")
-#                 fig = px.pie(df, values=values, names=labels, title='Predicted Field according to the Skills')
                 fig = px.pie(plot_data, values=values, names=labels, title='Predicted Field according to the Skills')
                 st.plotly_chart(fig)
 
                 ### Pie chart for User's👨‍💻 Experienced Level
-#                 labels = plot_data.User_level.unique()
                 labels = plot_data['User_level'].unique()
-#                 values = plot_data.User_level.value_counts()
                 values = plot_data['User_level'].value_counts().values
                 st.subheader("📈 ** Pie-Chart for User's👨‍💻 Experienced Level**")
-#                 fig = px.pie(df, values=values, names=labels, title="Pie-Chart📈 for User's👨‍💻 Experienced Level")
                 fig = px.pie(plot_data, values=values, names=labels, title="Pie-Chart📈 for User's👨‍💻 Experienced Level")
                 st.plotly_chart(fig)
 
