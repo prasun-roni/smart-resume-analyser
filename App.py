@@ -152,7 +152,7 @@ def run():
                 st.success("Hello " + resume_data['name'])
                 st.subheader("**Your Basic info**")
                 
-                st.markdown("Okay" + resume_data)
+                st.markdown(resume_data)
                 
                 try:
                     st.text('Name: ' + resume_data['name'])
