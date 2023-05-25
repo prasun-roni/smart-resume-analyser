@@ -289,6 +289,9 @@ def run():
                             unsafe_allow_html=True)
                         rec_course = course_recommender(uiux_course)
                         break
+                        
+                if len(reco_field) == 0:
+                    print("reco_field is empty" + reco_field)
 
                 ## Insert into table
 #                 ts = time.time()
