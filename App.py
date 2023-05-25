@@ -326,22 +326,17 @@ def run():
                     st.markdown(
                         '''<h4 style='text-align: left; color: #1ed760;'>[+] Awesome! You have added your Hobbies ⚽</h4>''',
                         unsafe_allow_html=True)
-                else:
-                    st.markdown(
-                        '''<h4 style='text-align: left; color: #fabc10;'>[-] According to our recommendation please add Hobbies ⚽. It will show your persnality to the Recruiters and give the assurance that you are fit for this role or not.</h4>''',
-                        unsafe_allow_html=True)
-                    
-                if 'interests' in r_text:
+                elif 'interests' in r_text:
                     resume_score = resume_score + 20
                     st.markdown(
                         '''<h4 style='text-align: left; color: #1ed760;'>[+] Awesome! You have added your Interests</h4>''',
                         unsafe_allow_html=True)
                 else:
                     st.markdown(
-                        '''<h4 style='text-align: left; color: #fabc10;'>[-] According to our recommendation please add Interests. It will show your persnality to the Recruiters.</h4>''',
+                        '''<h4 style='text-align: left; color: #fabc10;'>[-] According to our recommendation please add Hobbies ⚽ or Interests. It will show your persnality to the Recruiters and give the assurance that you are fit for this role or not.</h4>''',
                         unsafe_allow_html=True)
 
-                if 'achievements' in resume_text:
+                if 'achievements' in r_text:
                     resume_score = resume_score + 20
                     st.markdown(
                         '''<h4 style='text-align: left; color: #1ed760;'>[+] Awesome! You have added your Achievements 🏅 </h4>''',
@@ -351,7 +346,7 @@ def run():
                         '''<h4 style='text-align: left; color: #fabc10;'>[-] According to our recommendation please add Achievements 🏅. It will show that you are capable for the required position.</h4>''',
                         unsafe_allow_html=True)
 
-                if 'projects' in resume_text:
+                if 'projects' in r_text:
                     resume_score = resume_score + 20
                     st.markdown(
                         '''<h4 style='text-align: left; color: #1ed760;'>[+] Awesome! You have added your Projects 👨‍💻 </h4>''',
