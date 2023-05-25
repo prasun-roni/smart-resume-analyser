@@ -146,7 +146,7 @@ def run():
             if resume_data:
                 
                 ## Get the whole resume data
-                resume_text = pdf_reader(save_image_path)
+                resume_text = pdf_reader(save_image_path).lower()
 
                 st.header("**Resume Analysis**")
                 st.success("Hello " + resume_data['name'])
