@@ -206,7 +206,7 @@ def run():
                     
                     ## Data science recommendation
                     if i.lower() in ds_keyword:
-                        print(i.lower())
+                        st.markdown(print(i.lower()))
                         reco_field = 'Data Science'
                         st.success("Okay ! So you are looking for Data Science Jobs. Great !")
                         recommended_skills = ['Data Visualization', 'Predictive Analysis', 'Statistical Modeling',
@@ -225,7 +225,7 @@ def run():
 
                     ## Web development recommendation
                     elif i.lower() in web_keyword:
-                        print(i.lower())
+                        st.markdown(print(i.lower()))
                         reco_field = 'Web Development'
                         st.success("Okay ! So you are looking for Web Development Jobs. Awesome !")
                         recommended_skills = ['React', 'Django', 'Node JS', 'React JS', 'php', 'laravel', 'Magento',
@@ -241,7 +241,7 @@ def run():
 
                     ## Android App Development
                     elif i.lower() in android_keyword:
-                        print(i.lower())
+                        st.markdown(print(i.lower()))
                         reco_field = 'Android Development'
                         st.success("Okay ! So you are looking for Android App Development Jobs. That's nice.")
                         recommended_skills = ['Android', 'Android development', 'Flutter', 'Kotlin', 'XML', 'Java',
@@ -257,7 +257,7 @@ def run():
 
                     ## IOS App Development
                     elif i.lower() in ios_keyword:
-                        print(i.lower())
+                        st.markdown(print(i.lower()))
                         reco_field = 'IOS Development'
                         st.success("Okay ! So you are looking for IOS App Development Jobs. Good !")
                         recommended_skills = ['IOS', 'IOS Development', 'Swift', 'Cocoa', 'Cocoa Touch', 'Xcode',
@@ -274,7 +274,7 @@ def run():
 
                     ## Ui-UX Recommendation
                     elif i.lower() in uiux_keyword:
-                        print(i.lower())
+                        st.markdown(print(i.lower()))
                         reco_field = 'UI-UX Development'
                         st.success("Okay ! So you are looking for UI-UX Development Jobs. Wow !")
                         recommended_skills = ['UI', 'User Experience', 'Adobe XD', 'Figma', 'Zeplin', 'Balsamiq',
@@ -292,12 +292,18 @@ def run():
                         
                 if len(reco_field) == 0:
                     st.markdown("reco_field is empty" + reco_field)
+                    reco_field = 'Development'
+                        st.success("Okay ! So you are looking for Development Jobs. That's Great !")
+                        recommended_skills = resume_data['skills']
+                        recommended_keywords = st_tags(label='### Recommended skills for you.',
+                                                       text='Recommended skills generated from System',
+                                                       value=recommended_skills, key='7')
+                        st.markdown(
+                            '''<h4 style='text-align: left; color: #1ed760;'>Adding this skills to resume will boost 🚀 the chances of getting a Job 💼.</h4>''',
+                            unsafe_allow_html=True)
+                        rec_course = course_recommender(uiux_course)
 
                 ## Insert into table
-#                 ts = time.time()
-#                 cur_date = datetime.datetime.fromtimestamp(ts).strftime('%Y-%m-%d')
-#                 cur_time = datetime.datetime.fromtimestamp(ts).strftime('%H:%M:%S')
-#                 timestamp = str(cur_date + '_' + cur_time)
 
                 timestamp = time.strftime('%Y-%m-%d_%H:%M:%S', time.localtime())
               
