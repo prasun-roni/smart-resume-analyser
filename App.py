@@ -303,7 +303,7 @@ def run():
                 ### Resume writing recommendation
                 st.subheader("**Resume Tips & Ideas 💡**")
                 resume_score = 0
-                if 'Objective' or 'OBJECTIVE' in resume_text:
+                if 'Objective' in resume_text:
                     resume_score = resume_score + 20
                     st.markdown(
                         '''<h4 style='text-align: left; color: #1ed760;'>[+] Awesome! You have added Objective</h4>''',
@@ -313,10 +313,10 @@ def run():
                         '''<h4 style='text-align: left; color: #fabc10;'>[-] According to our recommendation please add your career objective, it will give your career intension to the Recruiters.</h4>''',
                         unsafe_allow_html=True)
 
-                if 'Declaration' or 'DECLARATION' in resume_text:
+                if 'Declaration' in resume_text:
                     resume_score = resume_score + 20
                     st.markdown(
-                        '''<h4 style='text-align: left; color: #1ed760;'>[+] Awesome! You have added Delcaration✍/h4>''',
+                        '''<h4 style='text-align: left; color: #1ed760;'>[+] Awesome! You have added Delcaration ✍</h4>''',
                         unsafe_allow_html=True)
                 else:
                     st.markdown(
