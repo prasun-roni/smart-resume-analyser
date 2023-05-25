@@ -301,24 +301,35 @@ def run():
                 st.subheader("**Resume Tips & Ideas 💡**")
                 r_text = resume_text.lower()
                 resume_score = 0
-                if 'objective' in r_text:
+                
+                if 'experience' in r_text:
                     resume_score = resume_score + 20
                     st.markdown(
-                        '''<h4 style='text-align: left; color: #1ed760;'>[+] Awesome! You have added Objective</h4>''',
+                        '''<h4 style='text-align: left; color: #1ed760;'>[+] Awesome! You have added Your Experience.</h4>''',
+                        unsafe_allow_html=True)
+                elif 'experiences' in r_text:
+                    resume_score = resume_score + 20
+                    st.markdown(
+                        '''<h4 style='text-align: left; color: #1ed760;'>[+] Awesome! You have added Your Experiences.</h4>''',
                         unsafe_allow_html=True)
                 else:
                     st.markdown(
-                        '''<h4 style='text-align: left; color: #fabc10;'>[-] According to our recommendation please add your career objective, it will give your career intension to the Recruiters.</h4>''',
+                        '''<h4 style='text-align: left; color: #fabc10;'>[-] According to our recommendation please add your Experiences.</h4>''',
                         unsafe_allow_html=True)
 
-                if 'declaration' in r_text:
+                if 'certifications' in r_text:
                     resume_score = resume_score + 20
                     st.markdown(
-                        '''<h4 style='text-align: left; color: #1ed760;'>[+] Awesome! You have added Delcaration ✍</h4>''',
+                        '''<h4 style='text-align: left; color: #1ed760;'>[+] Awesome! You are Certified.</h4>''',
+                        unsafe_allow_html=True)
+                elif 'certification' in r_text:
+                    resume_score = resume_score + 20
+                    st.markdown(
+                        '''<h4 style='text-align: left; color: #1ed760;'>[+] Awesome! You are Certified.</h4>''',
                         unsafe_allow_html=True)
                 else:
                     st.markdown(
-                        '''<h4 style='text-align: left; color: #fabc10;'>[-] According to our recommendation please add Declaration ✍. It will give the assurance that everything written on your resume is true and fully acknowledged by you</h4>''',
+                        '''<h4 style='text-align: left; color: #fabc10;'>[-] According to our recommendation please add any Certifications you have completed.</h4>''',
                         unsafe_allow_html=True)
 
                 if 'hobbies' in r_text:
@@ -339,7 +350,7 @@ def run():
                 if 'achievements' in r_text:
                     resume_score = resume_score + 20
                     st.markdown(
-                        '''<h4 style='text-align: left; color: #1ed760;'>[+] Awesome! You have added your Achievements 🏅 </h4>''',
+                        '''<h4 style='text-align: left; color: #1ed760;'>[+] Awesome! You Achievements 🏅 are great.</h4>''',
                         unsafe_allow_html=True)
                 else:
                     st.markdown(
@@ -349,7 +360,7 @@ def run():
                 if 'projects' in r_text:
                     resume_score = resume_score + 20
                     st.markdown(
-                        '''<h4 style='text-align: left; color: #1ed760;'>[+] Awesome! You have added your Projects 👨‍💻 </h4>''',
+                        '''<h4 style='text-align: left; color: #1ed760;'>[+] Awesome! You have done plenty of Projects 👨‍💻 </h4>''',
                         unsafe_allow_html=True)
                 else:
                     st.markdown(
