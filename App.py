@@ -146,14 +146,11 @@ def run():
             if resume_data:
                 
                 ## Get the whole resume data
-                resume_text = pdf_reader(save_image_path).lower()
+                resume_text = pdf_reader(save_image_path)
 
                 st.header("**Resume Analysis**")
                 st.success("Hello " + resume_data['name'])
                 st.subheader("**Your Basic info**")
-                
-                st.markdown(resume_data)
-                st.markdown(resume_text)
                 
                 try:
                     st.text('Name: ' + resume_data['name'])
@@ -302,8 +299,9 @@ def run():
 
                 ### Resume writing recommendation
                 st.subheader("**Resume Tips & Ideas 💡**")
+                r_text = resume_text.lower()
                 resume_score = 0
-                if 'Objective' in resume_text:
+                if 'objective' in r_text:
                     resume_score = resume_score + 20
                     st.markdown(
                         '''<h4 style='text-align: left; color: #1ed760;'>[+] Awesome! You have added Objective</h4>''',
@@ -313,7 +311,7 @@ def run():
                         '''<h4 style='text-align: left; color: #fabc10;'>[-] According to our recommendation please add your career objective, it will give your career intension to the Recruiters.</h4>''',
                         unsafe_allow_html=True)
 
-                if 'Declaration' in resume_text:
+                if 'declaration' in r_text:
                     resume_score = resume_score + 20
                     st.markdown(
                         '''<h4 style='text-align: left; color: #1ed760;'>[+] Awesome! You have added Delcaration ✍</h4>''',
@@ -323,7 +321,7 @@ def run():
                         '''<h4 style='text-align: left; color: #fabc10;'>[-] According to our recommendation please add Declaration ✍. It will give the assurance that everything written on your resume is true and fully acknowledged by you</h4>''',
                         unsafe_allow_html=True)
 
-                if 'Hobbies' or 'Interests' in resume_text:
+                if 'hobbies' in r_text:
                     resume_score = resume_score + 20
                     st.markdown(
                         '''<h4 style='text-align: left; color: #1ed760;'>[+] Awesome! You have added your Hobbies ⚽</h4>''',
@@ -332,8 +330,18 @@ def run():
                     st.markdown(
                         '''<h4 style='text-align: left; color: #fabc10;'>[-] According to our recommendation please add Hobbies ⚽. It will show your persnality to the Recruiters and give the assurance that you are fit for this role or not.</h4>''',
                         unsafe_allow_html=True)
+                    
+                if 'interests' in r_text:
+                    resume_score = resume_score + 20
+                    st.markdown(
+                        '''<h4 style='text-align: left; color: #1ed760;'>[+] Awesome! You have added your Interests</h4>''',
+                        unsafe_allow_html=True)
+                else:
+                    st.markdown(
+                        '''<h4 style='text-align: left; color: #fabc10;'>[-] According to our recommendation please add Interests. It will show your persnality to the Recruiters.</h4>''',
+                        unsafe_allow_html=True)
 
-                if 'Achievements' or 'ACHIEVEMENTS' in resume_text:
+                if 'achievements' in resume_text:
                     resume_score = resume_score + 20
                     st.markdown(
                         '''<h4 style='text-align: left; color: #1ed760;'>[+] Awesome! You have added your Achievements 🏅 </h4>''',
@@ -343,7 +351,7 @@ def run():
                         '''<h4 style='text-align: left; color: #fabc10;'>[-] According to our recommendation please add Achievements 🏅. It will show that you are capable for the required position.</h4>''',
                         unsafe_allow_html=True)
 
-                if 'Projects' or 'PROJECTS' in resume_text:
+                if 'projects' in resume_text:
                     resume_score = resume_score + 20
                     st.markdown(
                         '''<h4 style='text-align: left; color: #1ed760;'>[+] Awesome! You have added your Projects 👨‍💻 </h4>''',
