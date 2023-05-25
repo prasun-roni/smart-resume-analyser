@@ -159,22 +159,6 @@ def run():
                     st.text('Resume pages: ' + str(resume_data['no_of_pages']))
                 except:
                     pass
-                
-#                 cand_level = ''
-#                 if resume_data['no_of_pages'] == 1:
-#                     cand_level = "Fresher"
-#                     st.markdown('''<h4 style='text-align: left; color: #d73b5c;'>You are looking Fresher.</h4>''',
-#                                 unsafe_allow_html=True)
-                    
-#                 elif resume_data['no_of_pages'] == 2:
-#                     cand_level = "Intermediate"
-#                     st.markdown('''<h4 style='text-align: left; color: #1ed760;'>You are at intermediate level!</h4>''',
-#                                 unsafe_allow_html=True)
-                    
-#                 elif resume_data['no_of_pages'] >= 3:
-#                     cand_level = "Experienced"
-#                     st.markdown('''<h4 style='text-align: left; color: #fba171;'>You are at experience level!''',
-#                                 unsafe_allow_html=True)
 
                 st.subheader("**Skills Recommendation 💡**")
                 ## Skill shows
