@@ -293,15 +293,15 @@ def run():
                 if len(reco_field) == 0:
                     st.markdown("reco_field is empty" + reco_field)
                     reco_field = 'Development'
-                        st.success("Okay ! So you are looking for Development Jobs. That's Great !")
-                        recommended_skills = resume_data['skills']
-                        recommended_keywords = st_tags(label='### Recommended skills for you.',
+                    st.success("Okay ! So you are looking for Development Jobs. That's Great !")
+                    recommended_skills = resume_data['skills']
+                    recommended_keywords = st_tags(label='### Recommended skills for you.',
                                                        text='Recommended skills generated from System',
                                                        value=recommended_skills, key='7')
-                        st.markdown(
+                    st.markdown(
                             '''<h4 style='text-align: left; color: #1ed760;'>Adding this skills to resume will boost 🚀 the chances of getting a Job 💼.</h4>''',
                             unsafe_allow_html=True)
-                        rec_course = course_recommender(uiux_course)
+                    rec_course = course_recommender(uiux_course)
 
                 ## Insert into table
 
