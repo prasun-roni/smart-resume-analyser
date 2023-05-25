@@ -397,46 +397,46 @@ def run():
                 if resume_data['no_of_pages'] == 1:
                     if resume_score <= 40:
                         cand_level = "Fresher"
-                        st.markdown('''<h4 style='text-align: left; color: #d73b5c;'>You are looking Fresher.</h4>''',
+                        st.markdown('''<h1 style='text-align: center; color: #d73b5c;'>You are looking Fresher.</h1>''',
                                 unsafe_allow_html=True)
                     elif resume_score <= 80:
                         cand_level = "Intermediate"
-                        st.markdown('''<h4 style='text-align: left; color: #1ed760;'>You are at intermediate level!</h4>''',
+                        st.markdown('''<h1 style='text-align: center; color: #1ed760;'>You are at intermediate level!</h1>''',
                                 unsafe_allow_html=True)
                         
                     elif resume_score > 80:
                         cand_level = "Experienced"
-                        st.markdown('''<h4 style='text-align: left; color: #fba171;'>You are at experience level!''',
+                        st.markdown('''<h1 style='text-align: center; color: #fba171;'>You are at experience level!</h1>''',
                                 unsafe_allow_html=True)
                     
                 elif resume_data['no_of_pages'] == 2:
                     if resume_score <= 20:
                         cand_level = "Fresher"
-                        st.markdown('''<h4 style='text-align: left; color: #d73b5c;'>You are looking Fresher.</h4>''',
+                        st.markdown('''<h1 style='text-align: center; color: #d73b5c;'>You are looking Fresher.</h1>''',
                                 unsafe_allow_html=True)
                     elif resume_score <= 80:
                         cand_level = "Intermediate"
-                        st.markdown('''<h4 style='text-align: left; color: #1ed760;'>You are at intermediate level!</h4>''',
+                        st.markdown('''<h1 style='text-align: center; color: #1ed760;'>You are at intermediate level!</h1>''',
                                 unsafe_allow_html=True)
                         
                     elif resume_score > 80:
                         cand_level = "Experienced"
-                        st.markdown('''<h4 style='text-align: left; color: #fba171;'>You are at experience level!''',
+                        st.markdown('''<h1 style='text-align: center; color: #fba171;'>You are at experience level!</h1>''',
                                 unsafe_allow_html=True)
                         
                 elif resume_data['no_of_pages'] == 3:
                     if resume_score <= 20:
                         cand_level = "Fresher"
-                        st.markdown('''<h4 style='text-align: left; color: #d73b5c;'>You are looking Fresher.</h4>''',
+                        st.markdown('''<h1 style='text-align: center; color: #d73b5c;'>You are looking Fresher.</h1>''',
                                 unsafe_allow_html=True)
                     elif resume_score <= 60:
                         cand_level = "Intermediate"
-                        st.markdown('''<h4 style='text-align: left; color: #1ed760;'>You are at intermediate level!</h4>''',
+                        st.markdown('''<h1 style='text-align: center; color: #1ed760;'>You are at intermediate level!</h1>''',
                                 unsafe_allow_html=True)
                         
                     elif resume_score > 60:
                         cand_level = "Experienced"
-                        st.markdown('''<h4 style='text-align: left; color: #fba171;'>You are at experience level!''',
+                        st.markdown('''<h1 style='text-align: center; color: #fba171;'>You are at experience level!</h1>''',
                                 unsafe_allow_html=True)
 
                 insert_data(resume_data['name'], resume_data['email'], str(resume_score), timestamp,
