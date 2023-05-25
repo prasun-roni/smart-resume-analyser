@@ -343,7 +343,7 @@ def run():
                         '''<h4 style='text-align: left; color: #fabc10;'>[-] According to our recommendation please add Achievements 🏅. It will show that you are capable for the required position.</h4>''',
                         unsafe_allow_html=True)
 
-                if 'Projects' in resume_text:
+                if 'Projects' or 'PROJECTS' in resume_text:
                     resume_score = resume_score + 20
                     st.markdown(
                         '''<h4 style='text-align: left; color: #1ed760;'>[+] Awesome! You have added your Projects 👨‍💻 </h4>''',
