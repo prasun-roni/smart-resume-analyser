@@ -199,6 +199,8 @@ def run():
                 reco_field = ''
                 rec_course = ''
                 
+                st.markdown(resume_data['skills'])
+                
                 ## Courses recommendation
                 for i in resume_data['skills']:
                     
