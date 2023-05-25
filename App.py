@@ -291,7 +291,7 @@ def run():
                         break
                         
                 if len(reco_field) == 0:
-                    print("reco_field is empty" + reco_field)
+                    st.markdown("reco_field is empty" + reco_field)
 
                 ## Insert into table
 #                 ts = time.time()
